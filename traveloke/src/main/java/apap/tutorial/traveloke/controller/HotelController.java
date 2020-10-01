@@ -80,4 +80,20 @@ public class HotelController {
 
         return "view-hotel";
     }
+
+    @GetMapping(value = "hotel/update/id-hotel/{idHotel}/no-telepon/{newNoTelepon}")
+    public String updateNoTeleponWithPathVariable(
+            @PathVariable(value = "idHotel") String idHotel,
+            @PathVariable(value = "newNoTelepon") String newNoTelepon,
+            Model model
+    ){
+        // Mendapatkan HotelModel sesuai dengan idHotel
+        HotelModel hotel = hotelService.getHotelByIdHotel(idHotel);
+        hotel.setNoTelepon(newNoTelepon);
+
+        // Add variabel HotelModel ke 'hotel' untuk di render pada thymeleaf
+        model.addAttribute("hotel", hotel);
+
+        return "update-telepon";
+    }
 }
