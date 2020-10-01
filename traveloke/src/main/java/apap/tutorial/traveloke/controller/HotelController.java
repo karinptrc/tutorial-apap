@@ -17,6 +17,23 @@ public class HotelController {
     @Autowired
     private HotelService hotelService;
 
+    // Check error for empty id
+    private String checkError(HotelModel hotel, String request, Model model){
+        if (request.equals("view") && hotel != null){
+            model.addAttribute("hotel", hotel);
+            return "view-hotel";
+        }
+        if (request.equals("update") && hotel != null){
+            model.addAttribute("hotel", hotel);
+            return "update-telepon";
+        }
+        if (request.equals("delete") && hotel != null){
+            model.addAttribute("hotel", hotel);
+            return "delete-hotel";
+        }
+        return "error";
+    }
+
     // Routing URL yang diinginkan
     @RequestMapping("/hotel/add")
     public String addHotel(
@@ -61,10 +78,7 @@ public class HotelController {
         // Mendapatkan HotelModel sesuai dengan idHotel
         HotelModel hotel = hotelService.getHotelByIdHotel(idHotel);
 
-        // Add variabel HotelModel ke 'hotel' untuk di render pada thymeleaf
-        model.addAttribute("hotel", hotel);
-
-        return "view-hotel";
+        return checkError(hotel, "view", model);
     }
 
     @GetMapping(value = "hotel/view/id-hotel/{idHotel}")
@@ -75,10 +89,7 @@ public class HotelController {
         // Mendapatkan HotelModel sesuai dengan idHotel
         HotelModel hotel = hotelService.getHotelByIdHotel(idHotel);
 
-        // Add variabel HotelModel ke 'hotel' untuk di render pada thymeleaf
-        model.addAttribute("hotel", hotel);
-
-        return "view-hotel";
+        return checkError(hotel, "view", model);
     }
 
     @GetMapping(value = "hotel/update/id-hotel/{idHotel}/no-telepon/{newNoTelepon}")
@@ -91,10 +102,7 @@ public class HotelController {
         HotelModel hotel = hotelService.getHotelByIdHotel(idHotel);
         hotel.setNoTelepon(newNoTelepon);
 
-        // Add variabel HotelModel ke 'hotel' untuk di render pada thymeleaf
-        model.addAttribute("hotel", hotel);
-
-        return "update-telepon";
+        return checkError(hotel, "update", model);
     }
 
     @GetMapping(value = "hotel/delete/id-hotel/{idHotel}")
@@ -105,9 +113,6 @@ public class HotelController {
         // Menghapus Hotel sesuai dengan idHotel
         HotelModel hotel = hotelService.deleteHotelByIdHotel(idHotel);
 
-        // Add variabel HotelModel ke 'hotel' untuk di render pada thymeleaf
-        model.addAttribute("hotel", hotel);
-
-        return "delete-hotel";
+        return checkError(hotel, "delete", model);
     }
 }
