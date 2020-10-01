@@ -20,7 +20,6 @@ public class HotelInMemoryService implements HotelService{
     @Override
     public void addHotel(HotelModel hotel) {
         listHotel.add(hotel);
-
     }
 
     @Override
@@ -33,6 +32,19 @@ public class HotelInMemoryService implements HotelService{
         for (HotelModel hotelModel : listHotel) {
             if (hotelModel.getIdHotel().equals(idHotel)) {
                 return hotelModel;
+            }
+        }
+        return null;
+    }
+
+    @Override
+    public HotelModel deleteHotelByIdHotel(String idHotel) {
+        HotelModel hotel;
+        for (HotelModel hotelModel : listHotel) {
+            if (hotelModel.getIdHotel().equals(idHotel)) {
+                hotel = hotelModel;
+                listHotel.remove(hotelModel);
+                return hotel;
             }
         }
         return null;

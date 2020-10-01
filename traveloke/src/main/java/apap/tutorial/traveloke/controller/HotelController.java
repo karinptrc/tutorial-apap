@@ -96,4 +96,18 @@ public class HotelController {
 
         return "update-telepon";
     }
+
+    @GetMapping(value = "hotel/delete/id-hotel/{idHotel}")
+    public String deleteHotelWithPathVariable(
+            @PathVariable(value = "idHotel") String idHotel,
+            Model model
+    ){
+        // Menghapus Hotel sesuai dengan idHotel
+        HotelModel hotel = hotelService.deleteHotelByIdHotel(idHotel);
+
+        // Add variabel HotelModel ke 'hotel' untuk di render pada thymeleaf
+        model.addAttribute("hotel", hotel);
+
+        return "delete-hotel";
+    }
 }
