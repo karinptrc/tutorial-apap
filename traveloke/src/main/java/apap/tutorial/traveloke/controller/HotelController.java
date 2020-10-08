@@ -98,9 +98,8 @@ public class HotelController {
             @PathVariable(value = "newNoTelepon") String newNoTelepon,
             Model model
     ){
-        // Mendapatkan HotelModel sesuai dengan idHotel
-        HotelModel hotel = hotelService.getHotelByIdHotel(idHotel);
-        hotel.setNoTelepon(newNoTelepon);
+        // Memperbarui nomor telepon hotel berdasarkan id
+        HotelModel hotel = hotelService.updateTeleponHotel(idHotel, newNoTelepon);
 
         return checkError(hotel, "update", model);
     }

@@ -49,4 +49,15 @@ public class HotelInMemoryService implements HotelService{
         }
         return null;
     }
+
+    @Override
+    public HotelModel updateTeleponHotel(String idHotel, String newTelepon) {
+        for (HotelModel hotelModel : listHotel) {
+            if (hotelModel.getIdHotel().equals(idHotel)) {
+                hotelModel.setNoTelepon(newTelepon);
+                return hotelModel;
+            }
+        }
+        return null;
+    }
 }
