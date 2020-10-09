@@ -10,6 +10,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
+import javax.persistence.criteria.CriteriaBuilder;
 import java.util.List;
 
 @Controller
@@ -63,15 +64,60 @@ public class HotelController {
     }
 
     @GetMapping("/hotel/view")
-    public String viewDetailHotel(
+    public String viewDetailHotelRequestParam(
             @RequestParam(value = "idHotel") Long idHotel,
             Model model
     ){
-        HotelModel hotel = hotelService.getHotelByIdHotel(idHotel);
-        List<KamarModel> listKamar = kamarService.findAllKamarByIdHotel(idHotel);
+            HotelModel hotel = hotelService.getHotelByIdHotel(idHotel);
+            List<KamarModel> listKamar = kamarService.findAllKamarByIdHotel(idHotel);
+            Integer size = kamarService.getSizeListKamar(idHotel);
+
+            model.addAttribute("hotel", hotel);
+            model.addAttribute("size", size);
+            model.addAttribute("listKamar", listKamar);
+
+            return "view-hotel";
+    }
+
+    @GetMapping("/hotel/view/{idHotel}")
+    public String viewDetailHotelPathVariable(
+            @PathVariable(value = "idHotel") Long idHotel,
+            Model model
+    ){
+            HotelModel hotel = hotelService.getHotelByIdHotel(idHotel);
+            List<KamarModel> listKamar = kamarService.findAllKamarByIdHotel(idHotel);
+            Integer size = kamarService.getSizeListKamar(idHotel);
+
+            model.addAttribute("hotel", hotel);
+            model.addAttribute("size", size);
+            model.addAttribute("listKamar", listKamar);
+            return "view-hotel";
+    }
+
+    @GetMapping(value = "hotel/delete/{idHotel}")
+    public String deleteHotelWithPathVariable(
+            @PathVariable(value = "idHotel") Long idHotel,
+            Model model
+    ){
+        // Menghapus Hotel sesuai dengan idHotel
+        HotelModel hotel = hotelService.deleteHotel(idHotel);
+
+        model.addAttribute("id", idHotel);
         model.addAttribute("hotel", hotel);
-        model.addAttribute("listKamar", listKamar);
-        return "view-hotel";
+        return "delete-hotel";
+    }
+
+    @RequestMapping("/hotel/viewall")
+    public String listHotel(Model model){
+
+        // Mendapatkan semua HotelModel
+        List<HotelModel> listHotel = hotelService.getHotelList();
+
+        // Add variabel semua HotelModel ke 'listHotel' untuk dirender pada thymeleaf
+        model.addAttribute("listHotel", listHotel);
+
+        // Return view template yang diinginkan
+        return "viewall-hotel";
     }
 }
 // ------------- Dari tutorial 2 -------------

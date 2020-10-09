@@ -23,7 +23,7 @@ public class HotelServiceImpl implements HotelService{
 
     @Override
     public List<HotelModel> getHotelList() {
-        return hotelDb.findAll();
+        return hotelDb.findByOrderByIdDesc();
     }
 
     @Override
@@ -44,5 +44,15 @@ public class HotelServiceImpl implements HotelService{
         } catch (NullPointerException nullException){
             return null;
         }
+    }
+
+    @Override
+    public HotelModel deleteHotel(Long idHotel) {
+        HotelModel hotel = hotelDb.findById(idHotel).get();
+        if (hotel.getListKamar().size() == 0){
+            hotelDb.deleteById(hotel.getId());
+            return hotel;
+        }
+        return null;
     }
 }
