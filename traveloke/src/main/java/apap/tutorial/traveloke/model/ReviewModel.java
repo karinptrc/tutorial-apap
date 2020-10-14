@@ -1,5 +1,9 @@
 package apap.tutorial.traveloke.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import org.hibernate.annotations.OnDelete;
+import org.hibernate.annotations.OnDeleteAction;
+
 import javax.persistence.*;
 import java.io.Serializable;
 import java.util.List;
@@ -29,6 +33,12 @@ public class ReviewModel implements Serializable{
 
     @OneToMany(mappedBy = "kamar", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     private List<ReviewModel> listReview;
+
+    @ManyToOne(fetch = FetchType.EAGER,optional = false)
+    @JoinColumn(name = "reviewId", referencedColumnName = "id", nullable = false)
+    @OnDelete(action = OnDeleteAction.CASCADE)
+    @JsonIgnore
+    private KamarModel kamar;
 
     public Long getId() {
         return id;
