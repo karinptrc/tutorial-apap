@@ -14,4 +14,7 @@ public interface KamarService {
     KamarModel deleteKamar(Long noKamar);
     //Method untuk get size list hotel
     Integer getSizeListKamar(Long idHotel);
+
+    //Method untuk get kamar by nama kamar dan tipe
+    KamarModel getKamarByNamaKamarDanTipe(String namaKamar, Integer tipe);
 }

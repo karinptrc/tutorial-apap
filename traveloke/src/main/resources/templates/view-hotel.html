@@ -18,7 +18,7 @@
     <div th:if="${size == 0}">
         <h3> Belum memiliki kamar.</h3>
     </div>
-    <div th:unless="${size != 0}" th:each="kamar: ${listKamar}">
+    <div th:unless="${size == 0}" th:each="kamar: ${listKamar}">
         <h3 th:text="'No Kamar: ' + ${kamar.noKamar}"></h3>
         <h3 th:text="'Nama Kamar: ' + ${kamar.namaKamar}"></h3>
 

@@ -56,4 +56,9 @@ public class KamarServiceImpl implements KamarService{
     public Integer getSizeListKamar(Long idHotel) {
          return kamarDb.findByHotelId(idHotel).size();
     }
+
+    @Override
+    public KamarModel getKamarByNamaKamarDanTipe(String namaKamar, Integer tipe) {
+        return kamarDb.findByNamaKamarAndTipe(namaKamar, tipe);
+    }
 }
