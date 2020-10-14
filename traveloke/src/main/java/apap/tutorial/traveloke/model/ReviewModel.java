@@ -31,9 +31,6 @@ public class ReviewModel implements Serializable{
     @Column(name = "saran", nullable = true)
     private Integer saran;
 
-    @OneToMany(mappedBy = "kamar", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
-    private List<ReviewModel> listReview;
-
     @ManyToOne(fetch = FetchType.EAGER,optional = false)
     @JoinColumn(name = "reviewId", referencedColumnName = "id", nullable = false)
     @OnDelete(action = OnDeleteAction.CASCADE)
