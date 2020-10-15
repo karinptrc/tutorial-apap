@@ -106,7 +106,6 @@ public class HotelController {
         model.addAttribute("hotel", hotel);
         return "delete-hotel";
     }
-
     @RequestMapping("/hotel/viewall")
     public String listHotel(Model model){
 
