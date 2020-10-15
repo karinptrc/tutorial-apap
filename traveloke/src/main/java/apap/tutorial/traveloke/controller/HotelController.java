@@ -84,7 +84,6 @@ public class HotelController {
             @PathVariable(value = "idHotel") Long idHotel,
             Model model
     ){
-
             HotelModel hotel = hotelService.getHotelByIdHotel(idHotel);
             List<KamarModel> listKamar = kamarService.findAllKamarByIdHotel(idHotel);
             Integer size = kamarService.getSizeListKamar(idHotel);
