@@ -3,8 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <title>Update Kamar</title>
+    <object th:include="fragments/fragment :: css" th:remove="tag"></object>
+    <object th:include="fragments/fragment :: js" th:remove="tag"></object>
 </head>
 <body>
+<nav th:replace="fragments/fragment :: navbar"></nav>
 <h2 th:text="'Kamar dengan No Kamar ' + ${kamar.noKamar} + ' berhasil diperbarui'"></h2>
 <h3 th:text="'No Kamar: ' + ${kamar.noKamar}"></h3>
 <h3 th:text="'Nama Kamar: ' + ${kamar.namaKamar}"></h3>
