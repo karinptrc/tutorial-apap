@@ -8,7 +8,7 @@
 </head>
 <body>
 <nav th:replace="fragments/fragment :: navbar"></nav>
-<h2 th:text="'Kamar dengan No Kamar ' + ${kamar.noKamar} + ' berhasil ditambahkan'"> </h2>
+<h2 th:text="${kamarCount} + ' kamar berhasil ditambahkan'"> </h2>
 <a href="/">Kembali</a>
 </body>
 </html>
