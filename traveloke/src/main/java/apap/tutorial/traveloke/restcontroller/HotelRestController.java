@@ -3,6 +3,7 @@ package apap.tutorial.traveloke.restcontroller;
 import apap.tutorial.traveloke.model.HotelModel;
 import apap.tutorial.traveloke.rest.HotelDetail;
 import apap.tutorial.traveloke.service.HotelRestService;
+import apap.tutorial.traveloke.service.SuggestHotel;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -20,6 +21,9 @@ import java.util.NoSuchElementException;
 public class HotelRestController {
     @Autowired
     private HotelRestService hotelRestService;
+
+    @Autowired
+    private SuggestHotel suggestHotel;
 
     @PostMapping(value = "/hotel")
     private HotelModel createHotel(
@@ -98,8 +102,8 @@ public class HotelRestController {
 
     @GetMapping(value = "/hotel/find")
     private Mono<String> getSuggest(
-            @RequestParam String cityName
+            @RequestParam(value = "cityName") String cityName
     ){
-        return hotelRestService.getSuggest(cityName);
+        return suggestHotel.getSuggest(cityName);
     }
 }
