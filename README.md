@@ -2,6 +2,58 @@
 ## Authors
 * **Karin Patricia** - *1806147016* - *A*
 ---
+## Tutorial 5
+### What I have learned today
+Menggunakan Postman dan mengetahui hal baru
+mengenai Web Client.
+
+### Question 1
+Apa itu Postman? Apa kegunaannya?<br>
+Answer: <br>
+Postman adalah aplikasi yang berperan sebagai 
+REST Client untuk menguji response dari 
+REST API.
+
+### Question 2
+Jelaskan fungsi dari anotasi @JsonIgnoreProperties dan @JsonProperty.<br>
+Answer: <br>
+@JsonIgnoreProperty merupakan anotasi yang berfungsi untuk mengabaikan 
+atribut dari sebuah class ketika objeknya menjadi JSON. <br>
+@JsonProperty merupakan anotasi yang berfungsi untuk mengizinkan objek 
+lain di luar class tersebut untuk menjadi atribut di dalam class. 
+
+### Question 3
+Apa kegunaan atribut WebClient? <br>
+Answer: <br>
+Web Client berguna sebagai inisiasi url sebuah API pada Service agar 
+terhubung dengan web project.
+
+
+### Question 4
+Apa itu ResponseEntity dan BindingResult? Apa kegunaannya? <br>
+Answer: <br>
+ResponseEntity merupakan entitas yang berfungsi untuk mengembalikan 
+objek yang menjadi response/jawaban hasil request HTTP. <br>
+BindingResult merupakan sebuah interface yang menyimpan 
+hasil validasi dan hasil binding dari kesalahan 
+yang mungkin telah terjadi.
+
+
+### What I did not understand
+- [ ] Fitur-fitur Intellij
+- [x] Penggunaan wrapper class dan dynamic fields
+Sudah mengerti dan sudah bisa mengimplementasikan.
+- [x] Penggunaan method-method JPA Repository <br>
+Method yang digunakan pada repository berfungsi sebagai
+pengganti query untuk mengambil data ke dalam database. 
+Penamaan method bergantung pada nama kolom yang akan 
+dijadikan query.
+- [x] Penggunaaan dari beberapa syntax <br>
+Beberapa penggunaan anotasi sudah dimengerti.
+- [x] Masih kurang memahami anotasi Autowired <br>
+Autowired berfungsi untuk menghubungkan class yang implements ke sebuah interface dan interface terkait.
+Sehingga, interface tersebut dapat langsung digunakan dengan langsung mengimplementasi method dari class terkait.
+---
 ## Tutorial 4
 ### What I have learned today
 Penggunaan fragments dan beberapa elemen
