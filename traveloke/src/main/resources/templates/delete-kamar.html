@@ -3,9 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <title>Delete Kamar</title>
+    <object th:include="fragments/fragment :: css" th:remove="tag"></object>
+    <object th:include="fragments/fragment :: js" th:remove="tag"></object>
 </head>
 <body>
-<h3 th:text="'Kamar dengan No Kamar ' + ${id} + ' berhasil dihapus'"> </h3>
+<nav th:replace="fragments/fragment :: navbar"></nav>
+<h3 th:text="${kamarCount} + ' kamar berhasil dihapus'"> </h3>
 <a href="/hotel/viewall">Kembali</a>
 </body>
 </html>

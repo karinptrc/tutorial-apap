@@ -2,7 +2,55 @@
 ## Authors
 * **Karin Patricia** - *1806147016* - *A*
 ---
+## Tutorial 4
+### What I have learned today
+Penggunaan fragments dan beberapa elemen
+dalam thymleaf
 
+### Question 1
+Jelaskan perbedaan th:include dan th:replace! <br>
+Answer: <br>
+th:include berfungsi untuk memasukkan konten 
+pada fragmen ke dalam tag yang dituju
+th:replace berfungsi untuk mengganti tag dengan 
+tag yang sesuai dengan fragmennya
+
+### Question 2
+Jelaskan apa fungsi dari th:object <br>
+Answer: <br>
+th:object digunakan ketika html akan menggunakan 
+form
+
+### Question 3
+Jelaskan perbedaan dari * dan $ pada saat 
+penggunaan th:object! Kapan harus dipakai? <br>
+Answer: <br>
+Penggunaan * berfungsi untuk mengambil atribut spesifik 
+terhadap sebuah object yang dikembalikan pada html
+Penggunaan $ merupakan syntax umum yang berfungsi untuk 
+mengambil objek yang direturn dalam controller
+
+### Question 4
+Bagaimana kamu menyelesaikan latihan nomor 3? <br>
+Answer: <br>
+Menggunakan th:text="${page}" dalam fragmen dan 
+menambahkan atribut pada setiap controller 
+keterangan dari page tersebut.
+
+### What I did not understand
+- [ ] Fitur-fitur Intellij
+- [ ] Penggunaan wrapper class dan dynamic fields
+- [x] Penggunaan method-method JPA Repository <br>
+Method yang digunakan pada repository berfungsi sebagai
+pengganti query untuk mengambil data ke dalam database. 
+Penamaan method bergantung pada nama kolom yang akan 
+dijadikan query.
+- [x] Penggunaaan dari beberapa syntax <br>
+Beberapa penggunaan anotasi sudah dimengerti.
+- [x] Masih kurang memahami anotasi Autowired <br>
+Autowired berfungsi untuk menghubungkan class yang implements ke sebuah interface dan interface terkait.
+Sehingga, interface tersebut dapat langsung digunakan dengan langsung mengimplementasi method dari class terkait.
+---
 ## Tutorial 3
 ### What I have learned today
 Integrasi database pada project Spring Boot menggunakan JPA respository.
