@@ -1,6 +1,7 @@
 package apap.tutorial.traveloke.restcontroller;
 
 import apap.tutorial.traveloke.model.HotelModel;
+import apap.tutorial.traveloke.rest.HotelDetail;
 import apap.tutorial.traveloke.service.HotelRestService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -8,6 +9,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.server.ResponseStatusException;
+import reactor.core.publisher.Mono;
 
 import javax.validation.Valid;
 import java.util.List;
@@ -42,7 +44,7 @@ public class HotelRestController {
             return hotelRestService.getHotelByIdHotel(idHotel);
         }catch (NoSuchElementException e){
             throw new ResponseStatusException(
-                    HttpStatus.NOT_FOUND, "ID Hotel"+String.valueOf(idHotel)+" Not Found"
+                    HttpStatus.NOT_FOUND, "ID Hotel "+String.valueOf(idHotel)+" Not Found"
             );
         }
     }
@@ -62,6 +64,7 @@ public class HotelRestController {
             );
         }
     }
+
     @PutMapping(value = "/hotel/{idHotel}")
     private HotelModel updateHotel(
             @PathVariable(value = "idHotel") Long idHotel,
@@ -78,6 +81,25 @@ public class HotelRestController {
 
     @GetMapping(value = "/hotels")
     private List<HotelModel> retrieveListHotel(){
-       return hotelRestService.retrieveListHotel();
+        return hotelRestService.retrieveListHotel();
+    }
+
+    @GetMapping(value = "/hotel/{idHotel}/status")
+    private Mono<String> getStatus(
+            @PathVariable Long idHotel
+    ){
+        return hotelRestService.getStatus(idHotel);
+    }
+
+    @GetMapping(value = "/full")
+    private Mono<HotelDetail> postStatus(){
+        return  hotelRestService.postStatus();
+    }
+
+    @GetMapping(value = "/hotel/find")
+    private Mono<String> getSuggest(
+            @RequestParam String cityName
+    ){
+        return hotelRestService.getSuggest(cityName);
     }
 }
