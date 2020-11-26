@@ -46,10 +46,10 @@ Apa kegunaan class UserDetailsServiceImpl.java? Mengapa harus ada
 class tersebut padahal kita sudah memiliki class UserRoleServiceImpl.java?<br>
 Answer: <br>
 Class UserRoleServiceImpl hanya berfungsi untuk mengolah data pada database 
-user. Sedangkan untuk UserDetailsService adalah untuk menyimpan hasil otentikasi 
+user. Sedangkan untuk UserDetailsService, berfungsi dalam menyimpan hasil otentikasi 
 dan otorisasi antara username dan password yang berasal dari database user. 
-Sederhananya, class ini berfungsi untuk melakukan otentikasi dan otorisasi 
-untuk user yang berasal dari database user.
+Sederhananya, class ini berfungsi untuk menjamin otentikasi dan otorisasi 
+user yang berasal dari database user.
 
 
 ### What I did not understand
