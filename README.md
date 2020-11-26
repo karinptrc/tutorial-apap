@@ -2,6 +2,71 @@
 ## Authors
 * **Karin Patricia** - *1806147016* - *A*
 ---
+## Tutorial 6
+### What I have learned today
+Mengetahui cara membuat login, logout, dan authorization.
+
+### Question 1
+Jelaskan secara singkat perbedaan 
+Otentikasi dan Otorisasi! 
+Di bagian mana (dalam kode yang telah 
+anda buat) konsep tersebut diimplementasi?<br>
+Answer: <br>
+Otentikasi merupakan proses dimana seorang user mendapatkan akses untuk 
+masuk ke dalam sebuah sistem. Pada kode, implementasi dari otentikasi 
+dilakukan pada class WebSecurityConfig di method configAuthentication.
+
+Otorisasi merupakan proses dimana seorang user diberikan izin atas akses 
+untuk mengelola sebuah resources. Dalam kasus ini, otorisasi dilakukan 
+pada class WebSecurityConfig di dalam method configure. Salah satu 
+contohnya adalah .antMatchers("link").hasAuthority("ROLE"). 
+
+### Question 2
+Apa itu BCryptPasswordEncoder? Jelaskan secara singkat 
+cara kerja dan tujuannya.<br>
+Answer: <br>
+BCryptPasswordEncoder mekanisme untuk mengenkripsi password secarah satu arah.
+BCrypt berguna agar setiap password yang disimpan tetap unik dan sulit untuk 
+diretas. Implementasi dari BCrypt dapat dilakukan dengan menginisiasi objek 
+BCryptPasswordEncoder, lalu menggunakan objek tersebut untuk mengenkripsi 
+password. Enkripsi password ini baik digunakan ketika sebuah user akan 
+melakukan registrasi dan memperbarui passwordnya.
+
+
+### Question 3
+Jelaskan secara singkat apa itu UUID beserta penggunaannya!<br>
+Answer: <br>
+UUID adalah universally unique identifier. UUID melewati proses hash 
+sehingga hasilnya unik, oleh karena itu cocok digunakan untuk id.
+Dalam kasus ini, penggunaan UUID diimplementasikan pada pembuatan id 
+untuk id user di dalam database.  
+
+### Question 4
+Apa kegunaan class UserDetailsServiceImpl.java? Mengapa harus ada 
+class tersebut padahal kita sudah memiliki class UserRoleServiceImpl.java?<br>
+Answer: <br>
+Class UserRoleServiceImpl hanya berfungsi untuk mengolah data pada database 
+user. Sedangkan untuk UserDetailsService adalah untuk menyimpan hasil otentikasi 
+dan otorisasi antara username dan password yang berasal dari database user. 
+Sederhananya, class ini berfungsi untuk melakukan otentikasi dan otorisasi 
+untuk user yang berasal dari database user.
+
+
+### What I did not understand
+- [x] Fitur-fitur Intellij
+- [x] Penggunaan wrapper class dan dynamic fields
+Sudah mengerti dan sudah bisa mengimplementasikan.
+- [x] Penggunaan method-method JPA Repository <br>
+Method yang digunakan pada repository berfungsi sebagai
+pengganti query untuk mengambil data ke dalam database. 
+Penamaan method bergantung pada nama kolom yang akan 
+dijadikan query.
+- [x] Penggunaaan dari beberapa syntax <br>
+Beberapa penggunaan anotasi sudah dimengerti.
+- [x] Masih kurang memahami anotasi Autowired <br>
+Autowired berfungsi untuk menghubungkan class yang implements ke sebuah interface dan interface terkait.
+Sehingga, interface tersebut dapat langsung digunakan dengan langsung mengimplementasi method dari class terkait.
+---
 ## Tutorial 5
 ### What I have learned today
 Menggunakan Postman dan mengetahui hal baru
