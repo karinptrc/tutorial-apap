@@ -35,5 +35,15 @@
             <span class="navbar-text" th:text="${page}"></span>
         </div>
     </nav>
+
+    <div th:fragment="footer">
+        <div th:text="'Made with Love, Karin. ' + ${#dates.format(#dates.createNow(), 'dd MMM yyyy HH:mm')}">
+
+        </div>
+    </div>
+
+    <div th:fragment="footer" th:text="'Made with Love, Karin. ' + ${#dates.format(#dates.createNow(), 'dd MMM yyyy HH:mm')}">
+    </div>
+
 </body>
 </html>

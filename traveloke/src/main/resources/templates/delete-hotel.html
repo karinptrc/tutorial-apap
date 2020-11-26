@@ -11,5 +11,6 @@
 <h3 th:if="${hotel == null}"> Tidak dapat dihapus karena memiliki kamar. </h3>
 <h3 th:unless="${hotel == null}" th:text="'Hotel dengan Id Hotel ' + ${id} + ' berhasil dihapus'"> </h3>
 <a href="/hotel/viewall">Kembali</a>
+<div th:replace="fragments/fragment :: footer">
 </body>
 </html>
