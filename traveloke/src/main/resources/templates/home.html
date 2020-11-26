@@ -48,6 +48,11 @@
                         Tambah User Baru
                     </div>
                     <div class="card-body">
+                        <div th:if="${errorAdd}">
+                            <span style="color: red">
+                                Password setidaknya harus memiliki angka, huruf, dan minimal 8 karakter.
+                            </span>
+                        </div>
                         <form th:action="@{/user/addUser}" method="POST">
                             <label>User Name</label>
                             <input type="text" name="username" class="form-control">
@@ -63,7 +68,7 @@
                                 </option>
                             </select>
                             <br>
-                            <button type="submit" class="btn btn-primary">Sign In</button>
+                            <button type="submit" class="btn btn-primary">Add User</button>
                         </form>
                     </div>
                 </div>
