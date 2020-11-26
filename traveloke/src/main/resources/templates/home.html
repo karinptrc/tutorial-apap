@@ -12,6 +12,7 @@
 
     </nav>
     <div class="container-fluid">
+        <h2 th:text="'Hello ' + ${#httpServletRequest.remoteUser} + ' !'">Login as</h2>
         <h2>Selamat Datang di Traveloke!</h2>
 
         <a th:href="@{/hotel/viewall}" class="btn btn-primary">Lihat Semua Hotel</a>
@@ -41,5 +42,6 @@
         </div>
     </div>
     <div th:include="fragments/fragment :: footer">
+    </div>
 </body>
 </html>
