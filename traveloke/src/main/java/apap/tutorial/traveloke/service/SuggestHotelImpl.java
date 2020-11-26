@@ -11,13 +11,12 @@ import java.net.URI;
 
 @Service
 @Transactional
-public class SuggestHotelImpl implements SuggestHotel{
+public class SuggestHotelImpl implements SuggestHotel {
     private final WebClient webClient;
     public SuggestHotelImpl(WebClient.Builder webClientBuilder) {
         this.webClient = webClientBuilder.baseUrl(Setting.suggestUrl).build();
     }
 
-    @Override
     public Mono<String> getSuggest(String cityName) {
         String[] temp = cityName.split(" ");
         String kota = "";
@@ -27,9 +26,8 @@ public class SuggestHotelImpl implements SuggestHotel{
         }
             return this.webClient.get()
                     .uri(URI.create(
-                            "https://hotels-com-free.p.rapidapi.com/suggest/v1.7/json?"+kota+"" +
-                                    "&locale=en_US"))
-                    .header("x-rapidapi-key", "1e18da819emsh5ae17cf7ffec2bap11dc91jsn33da48343a9f")
+                            "https://hotels-com-free.p.rapidapi.com/suggest/v1.7/json?query="+kota+"&locale=en_US"))
+                    .header("x-rapidapi-key", "f0cb37426emshf10661b46735ea4p1585acjsn1cb9be742233")
                     .header("x-rapidapi-host", "hotels-com-free.p.rapidapi.com").retrieve().bodyToMono(String.class);
 
         }
