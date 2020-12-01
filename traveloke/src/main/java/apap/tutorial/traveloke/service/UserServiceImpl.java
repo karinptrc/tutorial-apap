@@ -29,7 +29,7 @@ public class UserServiceImpl implements UserService{
     public void updatePass(String username, String[] pass) {
         UserModel user = userDb.findByUsername(username);
         BCryptPasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
-        if (passwordEncoder.matches(pass[0], user.getPassword()) && pass[1].equals(pass[2])){
+        if (passwordEncoder.matches(pass[0], user.getPassword()) && pass[1].equals(pass[2]) && (!pass[0].equals(pass[1]))){
             user.setPassword(encrypt(pass[1]));
         }
         userDb.save(user);

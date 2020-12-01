@@ -2,6 +2,7 @@ package apap.tutorial.traveloke.model;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.JsonProperty;
 import org.hibernate.annotations.OnDelete;
 import org.hibernate.annotations.OnDeleteAction;
 import javax.persistence.*;
@@ -34,6 +35,7 @@ public class KamarModel implements Serializable {
     @ManyToOne(fetch = FetchType.EAGER,optional = false)
     @JoinColumn(name = "hotelId", referencedColumnName = "id", nullable = false)
     @OnDelete(action = OnDeleteAction.CASCADE)
+    @JsonProperty
     private HotelModel hotel;
 
     public Long getNoKamar() {
