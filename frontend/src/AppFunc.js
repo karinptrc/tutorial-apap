@@ -17,6 +17,19 @@ function App() {
 // below is the return value of useState
 // [favItems, setFavItems] = [state, setState]
     const [favItems, setFavItems] = useState(() => []);
+
+    function addToFavorites(item) {
+        const newItems = [ ... favItems];
+        const newItem = { ... item };
+
+        const targetInd = newItems.findIndex((it) => it.id === newItem.id);
+
+        if(targetInd < 0) newItems.push(newItem);
+        // else newItems.splice(targetInd, 1);
+
+        setFavItems(newItems);
+    }
+
     function handleItemClick(item) {
         // immutability
         const newItems = [...favItems];
@@ -27,6 +40,10 @@ function App() {
         else newItems.splice(targetInd, 1); // delete 1 item at index targetInd
         // trigger to set a new state
         setFavItems(newItems);
+    }
+
+    function deleteFav() {
+        setFavItems([]);
     }
 
     return (
@@ -41,10 +58,16 @@ function App() {
                         <List
                             title="List Movies"
                             items={listMovies}
-                            onItemClick={handleItemClick}
+                            onItemClick={addToFavorites}
                         />
                     </div>
                     <div className="col-sm">
+                        <input
+                            className="float-right"
+                            type={favItems.length == 0 ? 'hidden':'button'}
+                            onClick={deleteFav}
+                            value="Delete"
+                        />
                         <List
                             title="My Favorites"
                             items={favItems}

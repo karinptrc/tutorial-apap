@@ -3,11 +3,19 @@ import React from "react";
 import List from "./components/List";
 import listMovies from "./movies.json";
 import "./App.css";
+import Toggle from 'react-toggle';
+import EmptyState from "./components/EmptyState";
 
 export default class App extends React.Component {
     state = {
         favItems: [],
+        show : true
     };
+
+    handleToggle = () => {
+        const {show} = this.state;
+        this.setState({show : !show});
+    }
 
     addToFavorites = (item) => {
         const newItems = [ ... this.state.favItems];
@@ -45,6 +53,15 @@ export default class App extends React.Component {
           <p className="text-center text-secondary text-sm font-italic">
               (This is a <strong>class-based</strong> application)
           </p>
+            <div className="row justify-content-md-center">
+            <label>
+                <Toggle
+                    defaultChecked={this.state.show}
+                    icons={false}
+                    onChange={this.handleToggle} />
+                <span>Show Favorites</span>
+            </label>
+            </div>
             <div className="container pt-3">
                 <div className="row">
                     <div className="col-sm">
@@ -54,18 +71,24 @@ export default class App extends React.Component {
                             onItemClick={this.addToFavorites}
                         />
                     </div>
-                    <div className="col-sm">
-                        <input
-                            type={this.state.favItems.length == 0 ? 'hidden':'button'}
-                            onClick={this.deleteFav}
-                            value="Delete"
-                        />
-                        <List
-                            title="My Favorites"
-                            items={favItems}
-                            onItemClick={this.handleItemClick}
-                        />
-                    </div>
+                    {this.state.show ?
+                        <div className="col-sm">
+                            {!this.state.favItems.length ? <EmptyState/> :
+                                <div>
+                                <input
+                                    className="float-right"
+                                    type={this.state.favItems.length == 0 ? 'hidden':'button'}
+                                    onClick={this.deleteFav}
+                                    value="Delete"
+                                />
+                                <List
+                                    title = "My Favorite"
+                                    items = {favItems}
+                                    onItemClick = {this.handleItemClick}
+                                />
+                                </div>}
+                        </div>
+                        : null}
                 </div>
             </div>
         </div>
