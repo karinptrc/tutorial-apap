@@ -34,7 +34,7 @@ export default class App extends React.Component {
     };
 
     deleteFav = () => {
-        this.setState(this.state.favItems.clear);
+        this.setState({favItems:[]});
     }
 
   render() {
@@ -56,7 +56,7 @@ export default class App extends React.Component {
                     </div>
                     <div className="col-sm">
                         <input
-                            type={this.state.favItems.size > 0 ? 'button':'hidden'}
+                            type={this.state.favItems.length == 0 ? 'hidden':'button'}
                             onClick={this.deleteFav}
                             value="Delete"
                         />
