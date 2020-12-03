@@ -12,6 +12,7 @@
 
     </nav>
     <div class="container-fluid">
+        <h2 th:text="'Hello ' + ${#httpServletRequest.remoteUser} + ' !'">Login as</h2>
         <h2>Selamat Datang di Traveloke!</h2>
 
         <a th:href="@{/hotel/viewall}" class="btn btn-primary">Lihat Semua Hotel</a>
@@ -39,7 +40,42 @@
                 </div>
             </div>
         </div>
+
+        <div class="row">
+            <div class="col-md-6">
+                <div class="card">
+                    <div class="card-header">
+                        Tambah User Baru
+                    </div>
+                    <div class="card-body">
+                        <div th:if="${errorAdd}">
+                            <span style="color: red">
+                                Password setidaknya harus memiliki angka, huruf, dan minimal 8 karakter.
+                            </span>
+                        </div>
+                        <form th:action="@{/user/addUser}" method="POST">
+                            <label>User Name</label>
+                            <input type="text" name="username" class="form-control">
+
+                            <label>Password</label>
+                            <input type="password" name="password" class="form-control">
+
+                            <label>Role</label>
+                            <select name="role" class="form-control">
+                                <option selected value="">-- Pilih Role--</option>
+                                <option th:each="role : ${listRole}" th:value="${role.id}"
+                                        th:text="${role.role}">
+                                </option>
+                            </select>
+                            <br>
+                            <button type="submit" class="btn btn-primary">Add User</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
     <div th:include="fragments/fragment :: footer">
+    </div>
 </body>
 </html>
