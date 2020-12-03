@@ -2,6 +2,8 @@ import React, { useState } from "react";
 import List from "./components/List";
 import listMovies from "./movies.json";
 import "./App.css";
+import EmptyState from "./components/EmptyState";
+import Toggle from "react-toggle";
 
 /**
  * Building React component using functional programming paradigm
@@ -17,6 +19,11 @@ function App() {
 // below is the return value of useState
 // [favItems, setFavItems] = [state, setState]
     const [favItems, setFavItems] = useState(() => []);
+    const [show, setShow] = useState(() => true)
+
+    function handleToggle() {
+        setShow(!show);
+    }
 
     function addToFavorites(item) {
         const newItems = [ ... favItems];
@@ -52,6 +59,15 @@ function App() {
             <p className="text-center text-secondary text-sm font-italic">
                 (This is a <strong>function-based</strong> application)
             </p>
+            <div className="row justify-content-md-center">
+                <label>
+                    <Toggle
+                        defaultChecked={show}
+                        icons={false}
+                        onChange={handleToggle} />
+                    <span>Show Favorites</span>
+                </label>
+            </div>
             <div className="container pt-3">
                 <div className="row">
                     <div className="col-sm">
@@ -61,19 +77,37 @@ function App() {
                             onItemClick={addToFavorites}
                         />
                     </div>
-                    <div className="col-sm">
-                        <input
-                            className="float-right"
-                            type={favItems.length == 0 ? 'hidden':'button'}
-                            onClick={deleteFav}
-                            value="Delete"
-                        />
-                        <List
-                            title="My Favorites"
-                            items={favItems}
-                            onItemClick={handleItemClick}
-                        />
-                    </div>
+                    {show ?
+                        <div className="col-sm">
+                            {favItems.length == 0 ? <EmptyState/> :
+                                <div>
+                                    <input
+                                        className="float-right"
+                                        type={favItems.length == 0 ? 'hidden':'button'}
+                                        onClick={deleteFav}
+                                        value="Delete"
+                                    />
+                                    <List
+                                        title = "My Favorite"
+                                        items = {favItems}
+                                        onItemClick = {handleItemClick}
+                                    />
+                                </div>}
+                        </div>
+                        : null}
+                    {/*<div className="col-sm">*/}
+                    {/*    <input*/}
+                    {/*        className="float-right"*/}
+                    {/*        type={favItems.length == 0 ? 'hidden':'button'}*/}
+                    {/*        onClick={deleteFav}*/}
+                    {/*        value="Delete"*/}
+                    {/*    />*/}
+                    {/*    <List*/}
+                    {/*        title="My Favorites"*/}
+                    {/*        items={favItems}*/}
+                    {/*        onItemClick={handleItemClick}*/}
+                    {/*    />*/}
+                    {/*</div>*/}
                 </div>
             </div>
         </div>
