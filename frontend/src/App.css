@@ -39,8 +39,10 @@
 
 .dark {
   background: #282c34;
+  text-decoration-color: #FAFAFA;
 }
 
 .light {
   background: #FAFAFA;
+  text-decoration-color: #282c34;
 }

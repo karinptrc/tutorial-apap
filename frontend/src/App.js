@@ -15,8 +15,10 @@ export default class App extends React.Component {
     };
 
     changeBG = () => {
+        const cachedTheme = localStorage.getItem(this.state.theme);
+        const cachedMode = localStorage.getItem(this.state.darkMode)
         const {darkMode} = this.state;
-        if (this.state.darkMode == false){
+        if (cachedMode){
             this.setState({darkMode: true});
             this.setState({theme: "dark"});
         } else {
