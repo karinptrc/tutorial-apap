@@ -79,7 +79,7 @@ export default class App extends React.Component {
                         defaultChecked={this.state.darkMode}
                         icons={false}
                         onChange={this.changeBG} />
-                    <span>Show Favorites</span>
+                    <span>Dark Theme</span>
                 </label>
 
             </div>
