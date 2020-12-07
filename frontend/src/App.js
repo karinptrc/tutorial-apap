@@ -9,8 +9,21 @@ import EmptyState from "./components/EmptyState";
 export default class App extends React.Component {
     state = {
         favItems: [],
-        show : true
+        show : true,
+        darkMode : false,
+        theme : "light",
     };
+
+    changeBG = () => {
+        const {darkMode} = this.state;
+        if (this.state.darkMode == false){
+            this.setState({darkMode: true});
+            this.setState({theme: "dark"});
+        } else {
+            this.setState({darkMode: false});
+            this.setState({theme: "light"});
+        }
+    }
 
     handleToggle = () => {
         const {show} = this.state;
@@ -48,7 +61,7 @@ export default class App extends React.Component {
   render() {
       const {favItems} = this.state;
     return(
-        <div className="container-fluid">
+        <div className={this.state.theme}>
           <h1 className="text-center mt-3 mb-0"> Favorites Movie App</h1>
           <p className="text-center text-secondary text-sm font-italic">
               (This is a <strong>class-based</strong> application)
@@ -61,6 +74,14 @@ export default class App extends React.Component {
                     onChange={this.handleToggle} />
                 <span>Show Favorites</span>
             </label>
+                <label>
+                    <Toggle
+                        defaultChecked={this.state.darkMode}
+                        icons={false}
+                        onChange={this.changeBG} />
+                    <span>Show Favorites</span>
+                </label>
+
             </div>
             <div className="container pt-3">
                 <div className="row">
