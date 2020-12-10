@@ -2,6 +2,73 @@
 ## Authors
 * **Karin Patricia** - *1806147016* - *A*
 ---
+## Tutorial 7
+### What I have learned today
+Mengetahui bahwa terdapat class-based dan 
+function-based untuk React.
+
+### Question 1
+Jelaskan apa yang Anda lakukan di latihan dalam satu paragraf 
+per-soal. Berikan screenshot sebagai ilustrasi dari apa 
+yang Anda jelaskan. <br>
+Answer: <br>
+Jawaban dapat dilihat pada [link](https://docs.google.com/document/d/1pOYgmq5Fy8eVl2bXuAs88SKLK3ujzhQLWforf_rU260/edit?usp=sharing) ini.
+
+### Question 2
+Menurut pemahaman kamu selama pengerjaan tutorial ini, 
+apa perbedaan antara state dan props?<br>
+Answer: <br>
+State merupakan data yang tersimpan dalam sebuah component.
+State bersifat private terhadap component terkait, dan hanya dapat 
+dimanipulasi valuenya di dalam component itu sendiri.
+Sedangkan Props, props merupakan sebuah property yang dimiliki 
+oleh sebuah component. Props seperti this pada class Java. 
+Props lebih sering digunakan apabila terdapat passing data pada 
+component dari parent ke child.
+
+### Question 3
+Apa keuntungan menggunakan component 
+(e.g. List, Item) di React? Berikan contohnya!<br>
+Answer: <br>
+Keuntungan dari menggunakan component adalah component bersifat 
+reusable sehingga memudahkan dalam proses pengembangan. Component 
+memiliki konsep untuk merender objek secara 'individu' untuk interfacenya.
+Hal ini penting apabila sebuah halaman html memiliki banyak objek 
+yang perlu ditampilkan. Dengan adanya component, objek-objek tersebut 
+akan menjadi lebih mudah untuk di-maintain.
+
+### Question 4
+Menurut kamu, apa saja kelebihan menggunakan React 
+dalam pengembangan web?<br>
+Answer: <br>
+- Membuat aplikasi web dinamis menjadi lebih mudah
+- Komponen yang dapat digunakan kembali
+- Kemudahan dalam proses testing
+
+### Question 5
+Menurut kamu, apa saja kekurangan menggunakan React 
+dalam pengembangan web?<br>
+Answer: <br>
+- Laju perubahan/pengembangan React sendiri cukup tunggu
+- Dokumentasi yang buruk
+- Tidak awam dengan orang/pengembang web yang baru belajar
+
+### What I did not understand
+- [ ] Functional component dan Class component.
+- [x] Fitur-fitur Intellij
+- [x] Penggunaan wrapper class dan dynamic fields
+Sudah mengerti dan sudah bisa mengimplementasikan.
+- [x] Penggunaan method-method JPA Repository <br>
+Method yang digunakan pada repository berfungsi sebagai
+pengganti query untuk mengambil data ke dalam database. 
+Penamaan method bergantung pada nama kolom yang akan 
+dijadikan query.
+- [x] Penggunaaan dari beberapa syntax <br>
+Beberapa penggunaan anotasi sudah dimengerti.
+- [x] Masih kurang memahami anotasi Autowired <br>
+Autowired berfungsi untuk menghubungkan class yang implements ke sebuah interface dan interface terkait.
+Sehingga, interface tersebut dapat langsung digunakan dengan langsung mengimplementasi method dari class terkait.
+---
 ## Tutorial 6
 ### What I have learned today
 Mengetahui cara membuat login, logout, dan authorization.
