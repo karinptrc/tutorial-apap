@@ -4,6 +4,7 @@ import classes from "./styles.module.css";
 import APIConfig from "../../api/APIConfig";
 import Button from "../../components/Button";
 import Modal from "../../components/Modal";
+import Kamar from "../../components/Kamar";
 
 class HotelList extends Component {
     constructor(props) {
@@ -16,6 +17,7 @@ class HotelList extends Component {
             namaHotel: "",
             alamat: "",
             nomorTelepon: "",
+            listKamar: [],
             filter:"",
         };
         // this.handleClickLoading = this.handleClickLoading.bind(this);
@@ -156,9 +158,10 @@ class HotelList extends Component {
                         namaHotel={hotel.namaHotel}
                         alamat={hotel.alamat}
                         nomorTelepon={hotel.nomorTelepon}
+                        listKamar={hotel.listKamar}
                         handleEdit={() => this.handleEditHotel(hotel)}
                         handleDelete={() => this.handleDeleteHotel(hotel.id)}
-                    />
+                    ></Hotel>
                     ))}
                 </div>
                 <Modal 

@@ -1,0 +1,12 @@
+.kamar {
+    display: inline-flex;
+    border-radius: 1rem;
+    padding: 0.5rem;
+    margin-right: 0.25rem;
+    margin-bottom: 1rem;
+    background-color: #346cce;
+    color: whitesmoke;
+    font-size: smaller;
+    font-weight: bold;
+    cursor: default;
+}
