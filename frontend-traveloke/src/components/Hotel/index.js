@@ -11,13 +11,14 @@ return (
         <p>{`Nama Hotel: ${namaHotel}`}</p>
         <p>{`Alamat: ${alamat}`}</p>
         <p>{`Nomor telepon: ${nomorTelepon}`}</p>
-        {listKamar.map((kamar) => (
+        <p>{`List Kamar: `}</p>
+        {listKamar.length==0 ? <div className={classes.text}>Hotel tidak memiliki kamar</div> : listKamar.map((kamar) => (
             <Kamar
                 namaKamar={kamar.namaKamar}
                 kapasitasKamar={kamar.kapasitasKamar}
             >
             </Kamar>
-        ))}
+        ))} 
         <div>
             <Button onClick={handleEdit} variant="success">
                 Edit

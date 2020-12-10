@@ -6,3 +6,8 @@
     margin: 20px 0;
     box-sizing: border-box;
 }
+
+.text {
+    margin-bottom: 1rem;
+    font-weight: bold;
+}
