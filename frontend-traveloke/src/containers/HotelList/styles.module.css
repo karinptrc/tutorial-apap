@@ -26,4 +26,5 @@
     transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
     margin: 16px 0;
     resize: none;
+    border: 1px solid grey;
 }

@@ -16,6 +16,7 @@ class HotelList extends Component {
             namaHotel: "",
             alamat: "",
             nomorTelepon: "",
+            filter:"",
         };
         // this.handleClickLoading = this.handleClickLoading.bind(this);
         this.loadData = this.loadData.bind(this);
@@ -33,6 +34,10 @@ class HotelList extends Component {
     //     this.setState({ isLoading: !currentLoading });
     //     console.log(this.state.isLoading);
     // }
+
+    handleFilter(event){
+        this.setState({filter: event.target.value.substr(0,20)});
+    }
         
     handleCancel(event) {
         event.preventDefault();
@@ -126,14 +131,25 @@ class HotelList extends Component {
 
     render() {
         console.log("render()");
+        let filteredHotel = this.state.hotels.filter(
+            (hotel) => {
+                return hotel.namaHotel.toLowerCase().indexOf(this.state.
+                    filter.toLowerCase()) !== -1;
+            }
+        );
         return (
             <div className={classes.hotelList}>
                 <h1 className={classes.title}>All Hotels</h1>
                 <Button onClick={this.handleAddHotel} variant="primary">
                     Add Hotel
                 </Button>
+                <input type = "text"
+                    className={classes.textField}
+                    value={this.state.filter}
+                    placeholder="Search Hotel"
+                    onChange={this.handleFilter.bind(this)}/>
                 <div>
-                    {this.state.hotels.map((hotel) => (
+                    {filteredHotel.map((hotel) => (
                     <Hotel
                         key={hotel.id}
                         id={hotel.id}
