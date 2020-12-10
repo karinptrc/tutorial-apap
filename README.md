@@ -4,8 +4,7 @@
 ---
 ## Tutorial 8
 ### What I have learned today
-Mengetahui bahwa terdapat class-based dan 
-function-based untuk React.
+Mengetahui cara membuat component baru.
 
 ### Question 1
 Ceritakan langkah - langkah yang kalian lakukan untuk 
