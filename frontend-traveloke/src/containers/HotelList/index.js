@@ -38,7 +38,7 @@ class HotelList extends Component {
     // }
 
     handleFilter(event){
-        this.setState({filter: event.target.value.substr(0,20)});
+        this.setState({filter: event.target.value});
     }
         
     handleCancel(event) {
