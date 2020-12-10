@@ -2,6 +2,83 @@
 ## Authors
 * **Karin Patricia** - *1806147016* - *A*
 ---
+## Tutorial 8
+### What I have learned today
+Mengetahui cara membuat component baru.
+
+### Question 1
+Ceritakan langkah - langkah yang kalian lakukan untuk 
+solve LATIHAN no.1, dan mengapa kalian melakukan 
+langkah - langkah tersebut? <br>
+Answer: <br>
+Langkah-langkah yang dilakukan untuk menyelesaikan step tersebut 
+yaitu saya mengatur nilai namaHotel, alamat, dan nomorTelepon 
+menjadi string kosong setelah data hotel berhasil ditambahkan. 
+Pada kasus ini, saya menggunakan kode: <br>
+this.setState({namaHotel:"", alamat:"", nomorTelepon:""});<br>
+setelah baris kode: <br>
+await APIConfig.post("/hotel", data);
+
+### Question 2
+Jelaskan fungsi dari async dan await! <br>
+Answer: <br>
+Fungsi dari async adalah mengubah sifat function agar dapat dijalankan secara asynchronous. 
+Kode yang bersifat asynchronous berarti dapat langsung dilakukan secara concurrent tanpa butuh 
+menunggu hingga proses selesai. Sedangkan, fungsi dari await adalah untuk menunda 
+eksekusi hingga proses asynchronous selesai dijalankan.
+
+### Question 3
+Masukkan jawaban dari Screenshot yang diperintahkan di halaman 7 
+pada Component Lifecycle pada pertanyaan ini. <br>
+Answer: <br>
+Jawaban dapat dilihat pada [link](https://docs.google.com/document/d/1bEzuKpa2_UQFH0MfwSLQmHwyzcmZySm0KAM5j2HST8g/edit?usp=sharing) ini.
+
+### Question 4
+Jelaskan fungsi dari componentDidMount, shouldComponentUpdate,
+componentDidUpdate, componentWillReceiveProps,
+componentWillUnmount.<br>
+Answer: <br>
+- componentDidMount: digunakan untuk memberikan info bahwa fungsi render() sudah 
+selesai dijalankan dan komponen telah dipasang(mounted) ke DOM. Fungsi ini akan 
+dipanggil ketika render() telah selesai dan komponen dalam class sudah terpasang tanpa error. 
+Use case yang biasanya menggunakan ini yaitu ketika membuat fetch() ke server atau setState() 
+dari state yang akan dirender dengan data baru.
+
+- shouldComponentUpdate: digunakan untuk menentukan apakah sebuah state diizinkan 
+untuk diperbarui. Biasanya fungsi ini akan dipanggil untuk melakukan pengukuran optimisasi 
+performa program. Use case yang menggunakan ini yaitu ketika pengecekan sebuah state 
+dengan data baru yang akan diubah.
+
+- componentDidUpdate: digunakan untuk memberikan info bahwa sebuah state telah berubah/diperbarui. 
+Fungsi ini akan dipanggil apabila terdapat operasi pada DOM ketika komponen sudah diperbarui. 
+Use case yang menggunakan ini yaitu ketika melakukan network request.
+
+- componentWillReceiveProps: digunakan apabila ingin melakukan setState untuk perubahan props. 
+Fungsi ini akan dijalankan sebelum komponen yang telah dipasang menerima props baru. 
+Dengan kata lain, fungsi ini akan dipanggil ketika terjadi update pada props. 
+Biasanya, use case yang menggunakan ini adalah ketika menjalankan setState().
+
+- componentWillUnmount: digunakan untuk melakukan pembersihan yang penting saja, 
+seperti invalidating timers, canceling network request, dan sebagainya. Fungsi ini akan 
+dipanggil ketika komponen akan dilepas dari classnya dan dihancurkan. Use case yang 
+menggunakan ini adalah ketika ingin melakukan penghapusan efek apapun yang ada akibat set up dari componentDidMount.
+
+### What I did not understand
+- [ ] Functional component dan Class component.
+- [x] Fitur-fitur Intellij
+- [x] Penggunaan wrapper class dan dynamic fields
+Sudah mengerti dan sudah bisa mengimplementasikan.
+- [x] Penggunaan method-method JPA Repository <br>
+Method yang digunakan pada repository berfungsi sebagai
+pengganti query untuk mengambil data ke dalam database. 
+Penamaan method bergantung pada nama kolom yang akan 
+dijadikan query.
+- [x] Penggunaaan dari beberapa syntax <br>
+Beberapa penggunaan anotasi sudah dimengerti.
+- [x] Masih kurang memahami anotasi Autowired <br>
+Autowired berfungsi untuk menghubungkan class yang implements ke sebuah interface dan interface terkait.
+Sehingga, interface tersebut dapat langsung digunakan dengan langsung mengimplementasi method dari class terkait.
+---
 ## Tutorial 7
 ### What I have learned today
 Mengetahui bahwa terdapat class-based dan 
