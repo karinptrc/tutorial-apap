@@ -57,6 +57,7 @@ class HotelList extends Component {
                 nomorTelepon: this.state.nomorTelepon,
             };
             await APIConfig.post("/hotel", data);
+            this.setState({namaHotel:"", alamat:"", nomorTelepon:""});
             this.loadData();
         } catch (error) {
             alert("Oops terjadi masalah pada server");
